@@ -1,0 +1,110 @@
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none; //ko select được chữ
+
+    +.wrapper {
+        margin-left: 8px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: .5;
+    }
+}
+
+.icon {
+    font-size: 40px;
+}
+
+.icon+.title,
+.title+.icon {
+    margin-left: 8px;
+}
+
+//Button type
+.primmary {
+    background-color: var(--primmary);
+    color: var(--while);
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #FE2C55;
+    }
+}
+
+.outline {
+    color: rgba(254, 44, 85, 1);
+    border: 1px solid currentColor;
+    background-color: rgba(255, 255, 255, 1);
+
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.text {
+    font-style: normal;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 1);
+
+    &:hover {
+        text-decoration: underline;
+        background-color: rgba(22, 24, 35, .03);
+    }
+
+}
+
+.rounded {
+    color: rgba(22, 24, 35, .75);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 8px;
+    min-width: 90px;
+    height: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 52px;
+    line-height: 30px;
+    text-align: center;
+    transform: none;
+    border: 1px solid rgba(22, 24, 35, .12);
+    background-color: rgba(255, 255, 255, 1);
+
+    &:hover {
+        border-color: rgba(22, 24, 35, .2);
+        background-color: rgba(255, 255, 255, 1);
+    }
+}
+
+//Button size
+
+.small {
+    line-height: 22px;
+    font-size: 16px;
+    min-height: 28px;
+    font-weight: 600;
+    min-width: 88px;
+    padding: 0 10px;
+}
+
+.medium {
+    line-height: 22px;
+    font-size: 16px;
+    min-height: 36px;
+    font-weight: 700;
+    min-width: 100px;
+    padding: 6px 8px;
+}
+
+.large {
+    min-width: 168px;
+    min-height: 48px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 600;
+    width: 100%;
+}

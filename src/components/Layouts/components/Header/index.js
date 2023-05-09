@@ -8,9 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './Header.module.scss';
 import images from '~/asset/images';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components//Popper';
 import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 console.log(images.logo);
@@ -36,13 +37,11 @@ function Header() {
                     render={(attrs) => (
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
-                                <h4 className={cx('search-title')}>
-                                    Account
-                                </h4>
-                                <AccountItem/>
-                                <AccountItem/>
-                                <AccountItem/>
-                                <AccountItem/>
+                                <h4 className={cx('search-title')}>Account</h4>
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
                             </PopperWrapper>
                         </div>
                     )}
@@ -65,7 +64,12 @@ function Header() {
                 </Tippy>
 
                 {/* Action */}
-                <div className={cx('action')}></div>
+                <div className={cx('action')}>
+                    <Button rounded>Upload</Button>
+                    <Button primmary medium >
+                        Log in
+                    </Button>
+                </div>
             </div>
         </header>
     );
