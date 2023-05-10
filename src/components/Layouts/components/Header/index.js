@@ -8,13 +8,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './Header.module.scss';
 import images from '~/asset/images';
-import { faCircleXmark, faSpinner, faMagnifyingGlass, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleXmark,
+    faSpinner,
+    faMagnifyingGlass,
+    faEllipsis,
+    faEllipsisVertical,
+    faCircleQuestion,
+    faEarthAfrica,
+    faKeyboard,
+} from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components//Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Popper/Memu';
 
 const cx = classNames.bind(styles);
-console.log(images.logo);
+
+const MENU_ITEMS = [
+    { icon: <FontAwesomeIcon icon={faEarthAfrica} />, title: 'Language' },
+    { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Feedback and help', to: '/feedback' },
+    { icon: <FontAwesomeIcon icon={faKeyboard} />, title: 'Keyboad shortcuts' },
+];
 function Header() {
     const [searchResult, setSeatchResult] = useState([]);
     useEffect(() => {
@@ -65,10 +80,15 @@ function Header() {
 
                 {/* Action */}
                 <div className={cx('action')}>
-                    <Button rounded>Upload</Button>
-                    <Button primmary medium >
+                    <Button text>Upload</Button>
+                    <Button primmary medium>
                         Log in
                     </Button>
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
