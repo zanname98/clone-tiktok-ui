@@ -15,8 +15,29 @@
     background-color: transparent;
     display: flex;
     cursor: pointer;
+    line-height: 1.8rem;
 
     &:hover {
         background: rgba(22, 24, 35, 0.06);
     }
+}
+
+//header-menu
+.menu-header {
+    position: relative;
+    height: 50px;
+}
+
+.btn-back {
+    width: 50px;
+    background-color: transparent;
+    height: 100%;
+    cursor: pointer;
+}
+
+.title-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

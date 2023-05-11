@@ -26,7 +26,23 @@ import Menu from '~/components/Popper/Memu';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
-    { icon: <FontAwesomeIcon icon={faEarthAfrica} />, title: 'Language' },
+    {
+        icon: <FontAwesomeIcon icon={faEarthAfrica} />,
+        title: 'Language',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+            ],
+        },
+    },
     { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Feedback and help', to: '/feedback' },
     { icon: <FontAwesomeIcon icon={faKeyboard} />, title: 'Keyboad shortcuts' },
 ];
@@ -37,6 +53,14 @@ function Header() {
             setSeatchResult([]);
         }, 0);
     }, []);
+    const onChange = (item) => {
+        switch (item.key) {
+            case 'language':
+                break;
+            default:
+        }
+    };
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -84,7 +108,7 @@ function Header() {
                     <Button primmary medium>
                         Log in
                     </Button>
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onChange1={onChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>

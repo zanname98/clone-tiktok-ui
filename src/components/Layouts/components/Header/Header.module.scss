@@ -12,6 +12,7 @@
 }
 
 .inner {
+    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -105,4 +106,5 @@
     margin-left: 16px;
     background-color: transparent;
     padding: 8px;
+    cursor: pointer;
 }
