@@ -101,6 +101,31 @@
     }
 }
 
+//action 
+.action {
+    display: flex;
+    align-items: center;
+}
+
+.btn-action {
+    font-size: 2.2rem;
+    padding: 3px;
+    margin-left: 16px;
+    cursor: pointer;
+    background-color: transparent;
+
+    img {
+        margin-left: 5px;
+
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+
+
 .more-btn {
     font-size: 2rem;
     margin-left: 16px;
