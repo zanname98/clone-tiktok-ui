@@ -14,22 +14,22 @@ import {
     faCircleXmark,
     faSpinner,
     faMagnifyingGlass,
-    faEllipsis,
     faEllipsisVertical,
     faCircleQuestion,
     faEarthAfrica,
     faKeyboard,
-    faUpload,
-    faMessage,
     faUser,
     faGear,
     faCoins,
     faSignOut,
+    faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components//Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Memu';
+import { IconInbox, IconMessage } from '~/components/Icon';
+import Images from '~/components/Images';
 
 const cx = classNames.bind(styles);
 
@@ -125,20 +125,17 @@ function Header() {
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Tippy
-                                content="Upload"
-                                delay={(0, 200)}
-                                placement="bottom" // vi tri
-                                // trigger="click" //click moi hien
-                                // interactive //cho phep select
-                            >
-                                <button className={cx('btn-action')}>
-                                    <FontAwesomeIcon icon={faUpload} />
-                                </button>
-                            </Tippy>
+                            <Button leftIcon={<FontAwesomeIcon icon={faPlus} />} rounded text>
+                                UpLoad
+                            </Button>
                             <Tippy content="Inbox" placement="bottom">
                                 <button className={cx('btn-action')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <IconMessage classes="btn-icon" />
+                                </button>
+                            </Tippy>
+                            <Tippy content="Inbox">
+                                <button className={cx('btn-action')}>
+                                    <IconInbox classes="btn-icon" />
                                 </button>
                             </Tippy>
                         </>
@@ -152,12 +149,12 @@ function Header() {
                     )}
                     <Menu items={currentUser ? MENU_USER : MENU_ITEMS}>
                         {currentUser ? (
-                            <button className={cx('btn-action')}>
-                                <img
-                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/2b51d341e7c375b8968474eaff734427.jpeg?x-expires=1684224000&x-signature=ViKCvO7%2BQWFSNUhgbNs5i5HR7BU%3D"
-                                    alt="avatart"
-                                />
-                            </button>
+                            <Images
+                                className={cx('btn-action')}
+                                src="https://p16-sign-sg./tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/2b51d341e7c375b8968474eaff734427.jpeg?x-expires=1684224000&x-signature=ViKCvO7%2BQWFSNUhgbNs5i5HR7BU%3D"
+                                alt="avatart"
+                                // fallback="https://lh3.googleusercontent.com/ogw/AOLn63EDbvyJPV-bHu9Dyyb6PU_YG0f8n6xNILH8vG_rmg=s32-c-mo"
+                            />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />

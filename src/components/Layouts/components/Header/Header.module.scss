@@ -108,20 +108,13 @@
 }
 
 .btn-action {
-    font-size: 2.2rem;
-    padding: 3px;
-    margin-left: 16px;
     cursor: pointer;
     background-color: transparent;
-
-    img {
-        margin-left: 5px;
-
-        width: 32px;
-        height: 32px;
-        object-fit: cover;
-        border-radius: 50%;
-    }
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 

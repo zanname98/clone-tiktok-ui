@@ -34,7 +34,8 @@ function Menu({ children, items = [], onChange1 = defaultFn }) {
     };
     return (
         <Tippy
-            delay={(0, 700)}
+            // delay={(0, 700)}
+            trigger="click"
             offset={[10, 10]} //vi tri
             interactive
             placement="bottom-end"
