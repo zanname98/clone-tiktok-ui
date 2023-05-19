@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
-
 // tippy
-import HeadlessTippy from '@tippyjs/react/headless';
+
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
@@ -11,9 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Header.module.scss';
 import images from '~/asset/images';
 import {
-    faCircleXmark,
-    faSpinner,
-    faMagnifyingGlass,
     faEllipsisVertical,
     faCircleQuestion,
     faEarthAfrica,
@@ -24,12 +19,11 @@ import {
     faSignOut,
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
-import { Wrapper as PopperWrapper } from '~/components//Popper';
-import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Memu';
 import { IconInbox, IconMessage } from '~/components/Icon';
 import Images from '~/components/Images';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 
@@ -63,22 +57,14 @@ const MENU_USER = [
     { icon: <FontAwesomeIcon icon={faSignOut} />, title: 'Log out', to: '/logout', seperate: true },
 ];
 function Header() {
-    const [searchResult, setSeatchResult] = useState([]);
     const currentUser = true;
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSeatchResult([]);
-        }, 0);
-    }, []);
-    const onChange = (item) => {
-        switch (item.key) {
-            case 'language':
-                break;
-            default:
-        }
-    };
-
+    // const onChange = (item) => {
+    //     switch (item.key) {
+    //         case 'language':
+    //             break;
+    //         default:
+    //     }
+    // };
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -87,39 +73,7 @@ function Header() {
                     <img src={images.logo} alt="Tiktok" />
                 </div>
                 {/* input */}
-
-                <HeadlessTippy
-                    interactive //select
-                    visible={searchResult.length > 0}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Account</h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input placeholder="Search accounts and videos" spellCheck={false} />
-
-                        <button className={cx('clear')}>
-                            {/* clear */}
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        {/* loading */}
-                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-
-                        <button className={cx('btn-search')}>
-                            {/* search */}
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
-                </HeadlessTippy>
-
+                <Search />
                 {/* Action */}
 
                 <div className={cx('action')}>
@@ -151,7 +105,7 @@ function Header() {
                         {currentUser ? (
                             <Images
                                 className={cx('btn-action')}
-                                src="https://p16-sign-sg./tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/2b51d341e7c375b8968474eaff734427.jpeg?x-expires=1684224000&x-signature=ViKCvO7%2BQWFSNUhgbNs5i5HR7BU%3D"
+                                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/2b51d341e7c375b8968474eaff734427.jpeg?x-expires=1684224000&x-signature=ViKCvO7%2BQWFSNUhgbNs5i5HR7BU%3D"
                                 alt="avatart"
                                 // fallback="https://lh3.googleusercontent.com/ogw/AOLn63EDbvyJPV-bHu9Dyyb6PU_YG0f8n6xNILH8vG_rmg=s32-c-mo"
                             />
