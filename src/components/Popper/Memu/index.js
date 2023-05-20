@@ -9,7 +9,6 @@ import MenuItem from './MenuItem';
 import Header from './Header';
 
 const cx = classNames.bind(styles);
-
 const defaultFn = () => {};
 function Menu({ children, items = [], hideOnClick = false, onChange1 = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
