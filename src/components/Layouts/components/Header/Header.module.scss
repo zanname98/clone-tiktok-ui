@@ -4,11 +4,17 @@
     --search-top-spacer: 9px;
     --search-button-width: 52px;
 
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
     width: 100%;
-    height: var(--defaultLayout-header-height, ̉60);
+    height: var(--defaultLayout-header-height);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
     display: flex;
     justify-content: center;
+    background-color: var(--while);
 }
 
 .inner {
@@ -20,11 +26,27 @@
     width: var(--defaultLayout-width, 1150);
 }
 
+.logo {
+    display: flex;
+}
 
 //action 
 .action {
     display: flex;
     align-items: center;
+
+    .btn-upload {
+        font-size: 1.6rem;
+        background-color: transparent;
+        padding: 10px;
+        border: 1px solid rgba(22, 24, 35, .12);
+        cursor: pointer;
+
+        &:hover {
+            border-color: rgba(22, 24, 35, .2);
+            background-color: rgba(255, 255, 255, 1);
+        }
+    }
 }
 
 .btn-action {

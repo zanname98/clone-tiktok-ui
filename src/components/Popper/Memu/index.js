@@ -11,7 +11,7 @@ import Header from './Header';
 const cx = classNames.bind(styles);
 
 const defaultFn = () => {};
-function Menu({ children, items = [], onChange1 = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange1 = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
     const renderItems = () => {
@@ -34,8 +34,8 @@ function Menu({ children, items = [], onChange1 = defaultFn }) {
     };
     return (
         <Tippy
-            // delay={(0, 700)}
-            trigger="click"
+            hideOnClick={hideOnClick}
+            delay={[0, 700]}
             offset={[10, 10]} //vi tri
             interactive
             placement="bottom-end"
@@ -51,7 +51,7 @@ function Menu({ children, items = [], onChange1 = defaultFn }) {
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}> {renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

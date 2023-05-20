@@ -1,13 +1,8 @@
-// tippy
-
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import styles from './Header.module.scss';
-import images from '~/asset/images';
 import {
     faEllipsisVertical,
     faCircleQuestion,
@@ -19,9 +14,13 @@ import {
     faSignOut,
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
+import { IconInbox, IconMessage } from '~/components/Icon';
+import routesConfig from '~/config/routes';
+
+import styles from './Header.module.scss';
+import images from '~/asset/images';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Memu';
-import { IconInbox, IconMessage } from '~/components/Icon';
 import Images from '~/components/Images';
 import Search from '../Search';
 
@@ -34,6 +33,118 @@ const MENU_ITEMS = [
         children: {
             title: 'Language',
             data: [
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Tieng viet',
+                },
+                {
+                    code: 'en',
+                    title: 'English',
+                },
                 {
                     code: 'vi',
                     title: 'Tieng viet',
@@ -69,9 +180,9 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 {/* Logo */}
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo')}>
                     <img src={images.logo} alt="Tiktok" />
-                </div>
+                </Link>
                 {/* input */}
                 <Search />
                 {/* Action */}
@@ -79,7 +190,12 @@ function Header() {
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Button leftIcon={<FontAwesomeIcon icon={faPlus} />} rounded text>
+                            <Button
+                                className={cx('btn-upload')}
+                                leftIcon={<FontAwesomeIcon icon={faPlus} />}
+                                rounded
+                                text
+                            >
                                 UpLoad
                             </Button>
                             <Tippy content="Inbox" placement="bottom">

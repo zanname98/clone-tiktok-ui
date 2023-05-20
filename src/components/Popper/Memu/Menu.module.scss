@@ -35,6 +35,11 @@
 .menu-header {
     position: relative;
     height: 50px;
+    flex-shrink: 0;
+}
+
+.menu-body {
+    overflow-y: auto;
 }
 
 .btn-back {

@@ -5,7 +5,7 @@
     border-radius: 4px;
     cursor: pointer;
     user-select: none; //ko select được chữ
-    font-family: 'ProximaNova', 'SofiaPro';
+    font-family: var(--font-family);
 
     +.wrapper {
         margin-left: 8px;
