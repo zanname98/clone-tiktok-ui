@@ -13,28 +13,28 @@ import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 function Search() {
-    const [searchResult, setSeatchResult] = useState([]);
+    const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
     const inputRef = useRef();
     const debouced = useDebounce(searchValue, 800);
+
     useEffect(() => {
         if (!debouced.trim()) {
-            setSeatchResult([]);
+            setSearchResult([]);
             return;
         }
         setLoading(true);
 
         //fetch
         //XMLHttpRequest
-
         const fetchApi = async () => {
             setLoading(true);
 
             const result = await SearchSevice.Search(debouced, 'less');
 
-            setSeatchResult(result);
+            setSearchResult(result);
 
             setLoading(false);
         };
@@ -43,7 +43,7 @@ function Search() {
 
     const handleClear = () => {
         setSearchValue('');
-        setSeatchResult([]);
+        setSearchResult([]);
         inputRef.current.focus();
     };
 

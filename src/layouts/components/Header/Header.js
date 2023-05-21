@@ -212,7 +212,7 @@ function Header() {
                     ) : (
                         <>
                             <Button text>Upload</Button>
-                            <Button primmary medium>
+                            <Button primmary medium to="/">
                                 Log in
                             </Button>
                         </>

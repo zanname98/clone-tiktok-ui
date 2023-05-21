@@ -32,6 +32,20 @@ function Menu({ children, items = [], hideOnClick = false, onChange1 = defaultFn
             );
         });
     };
+    const handleOnBack = () => {
+        setHistory((prev) => prev.slice(0, prev.length - 1));
+    };
+    const renderMenuChildren = (attrs) => (
+        <div className={cx('list-menu')} tabIndex="-1" {...attrs}>
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 && <Header title={current.title} onBack={handleOnBack} />}
+                <div className={cx('menu-body')}> {renderItems()}</div>
+            </PopperWrapper>
+        </div>
+    );
+    const handleResetPage = () => {
+        setHistory((prev) => prev.slice(0, 1));
+    };
     return (
         <Tippy
             hideOnClick={hideOnClick}
@@ -39,23 +53,8 @@ function Menu({ children, items = [], hideOnClick = false, onChange1 = defaultFn
             offset={[10, 10]} //vi tri
             interactive
             placement="bottom-end"
-            render={(attrs) => (
-                <div className={cx('list-menu')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && (
-                            <Header
-                                title={current.title}
-                                onBack={() => {
-                                    // prev.splice(prev.length - 1)
-                                    setHistory((prev) => prev.slice(0, prev.length - 1));
-                                }}
-                            />
-                        )}
-                        <div className={cx('menu-body')}> {renderItems()}</div>
-                    </PopperWrapper>
-                </div>
-            )}
-            onHide={() => setHistory((prev) => prev.slice(0, 1))} // Bấm ra ngoài luôn ở trang đầu
+            render={renderMenuChildren}
+            onHide={handleResetPage} // Bấm ra ngoài luôn ở trang đầu
         >
             {children}
         </Tippy>
