@@ -38,8 +38,11 @@ const IconInbox = ({ width = '3.2rem', height = '3.2rem', classes }) => (
     </svg>
 );
 
-const IconSearch = () => (
-    <svg width="24" data-e2e="" height="24" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+const IconSearch = ({ width = '2.4rem', height = '2.4rem', classes }) => (
+    <svg className={cx(classes)}
+    width={width}
+    datae2e=""
+    height={height} viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -47,4 +50,6 @@ const IconSearch = () => (
         ></path>
     </svg>
 );
+
+
 export { IconMessage, IconInbox, IconSearch };
