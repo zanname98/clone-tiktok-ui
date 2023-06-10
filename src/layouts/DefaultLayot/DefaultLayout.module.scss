@@ -10,6 +10,7 @@
     padding: 0 24px;
     width: var(--defaultLayout-width, 1150);
     display: flex;
+    max-width: 100%;
 }
 
 .content {

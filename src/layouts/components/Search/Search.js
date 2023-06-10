@@ -19,7 +19,6 @@ function Search() {
     const [loading, setLoading] = useState(false);
     const inputRef = useRef();
     const debouced = useDebounce(searchValue, 800);
-
     useEffect(() => {
         if (!debouced.trim()) {
             setSearchResult([]);
