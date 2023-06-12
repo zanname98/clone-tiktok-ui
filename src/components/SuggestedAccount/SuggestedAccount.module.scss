@@ -1,0 +1,64 @@
+.wrapper {
+    padding-top: 16px;
+    border-top: 1px solid #ededee;
+}
+
+.babel {
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(22, 24, 35, .75);
+}
+
+.see-more {
+    color: rgb(254, 44, 85);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.info {
+    font-size: 1.6rem;
+}
+
+.icon {
+    font-size: 14px;
+    color: #20d5ec;
+    margin-left: 4px;
+}
+
+.images {
+    width: 3.2rem;
+    height: 3.2rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.username {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.name {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    max-width: 145px;
+    color: rgba(22, 24, 35, 0.75);
+}
